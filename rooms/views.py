@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.generics import ListAPIView, RetrieveAPIView
-from rest_framework import status, A
+from rest_framework import status
 
 from .models import Room
 from .serializers import RoomSerializer, WriteRoomSerializer
@@ -67,7 +67,6 @@ class RoomView(APIView):
         except Room.DoesNotExist:
             return None
 
-
     def get(self, request, pk):
         try:
             room = Room.objects.get(pk=pk)
@@ -84,7 +83,7 @@ class RoomView(APIView):
             serializer = WriteRoomSerializer(room, data=request.data, partial=True)
             if serializer.is_valid():
                 room = serializer.save()
-                return Response(ReadRoomSerializer(room).data)
+                return Response(RoomSerializer(room).data)
             else:
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             return Response()
