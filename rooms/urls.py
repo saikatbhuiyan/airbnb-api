@@ -7,9 +7,11 @@ from . import views
 app_name = 'rooms'
 
 urlpatterns = [
-    path("list/", views.rooms_view),
-    path("list/", views.ListRoomsView.as_view()),
-    path("<int:pk>/", views.DetailRoomView.as_view()),
+    # path("list/", views.rooms_view),
+    # path("list/", views.ListRoomsView.as_view()),
+    # path("<int:pk>/", views.DetailRoomView.as_view()),
+    path("", views.RoomsView.as_view()),
+    path("<int:pk>/", views.RoomView.as_view()),
 ]
 
 # router = DefaultRouter()
