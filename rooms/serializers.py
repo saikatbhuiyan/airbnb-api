@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from users.serializers import UserSerializer
+from users.serializers import ReadUserSerializer
 from .models import Room
 
 
@@ -11,7 +11,7 @@ from .models import Room
 #     instant_book = serializers.BooleanField()
 
 class RoomSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
+    user = ReadUserSerializer()
 
     class Meta:
         model = Room
