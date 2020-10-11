@@ -142,7 +142,7 @@ REST_FRAMEWORK = {
         "config.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",
     ],
-
+}
 
 if not DEBUG:
     REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = [
