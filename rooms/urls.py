@@ -10,6 +10,7 @@ urlpatterns = [
     # path("list/", views.rooms_view),
     # path("list/", views.ListRoomsView.as_view()),
     # path("<int:pk>/", views.DetailRoomView.as_view()),
+    path("search/", views.room_search, name="search"),
     path("", views.RoomsView.as_view()),
     path("<int:pk>/", views.RoomView.as_view()),
 ]
